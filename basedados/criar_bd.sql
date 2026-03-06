@@ -1,10 +1,8 @@
--- Criar banco de dados
 CREATE DATABASE IF NOT EXISTS trabalho1php 
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE trabalho1php;
 
--- Tabela utilizador
 CREATE TABLE IF NOT EXISTS utilizador (
     utilizador_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
@@ -14,7 +12,7 @@ CREATE TABLE IF NOT EXISTS utilizador (
     saldo DECIMAL(10,2) DEFAULT 0.00
 );
 
--- Tabela transacoes
+
 CREATE TABLE IF NOT EXISTS transacoes (
     transacoes_id INT PRIMARY KEY AUTO_INCREMENT ,
     user_id INT NOT NULL,
@@ -24,7 +22,7 @@ CREATE TABLE IF NOT EXISTS transacoes (
     FOREIGN KEY (user_id) REFERENCES utilizador(utilizador_id)
 );
 
--- Inserir dados 
+ 
 INSERT INTO utilizador (nome, email, password, tipo_util, saldo) VALUES
     ('visitante', NULL, NULL, 'visitante', 0.00), 
     ('cliente', 'cliente@email.com', 'cliente', 'cliente', 100.00),
