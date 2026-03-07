@@ -1,30 +1,16 @@
-CREATE DATABASE IF NOT EXISTS FelixUberShop 
+CREATE DATABASE IF NOT EXISTS trabalho1php 
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE trabaFelixUberShop;
-
---tabela de utilizador 
+USE trabalho1php;
 
 CREATE TABLE IF NOT EXISTS utilizador (
     utilizador_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    perfil ENUM('visitante', 'cliente', 'funcionario', 'administrador') NOT NULL DEFAULT 'visitante',
+    email VARCHAR(255),
+    password VARCHAR(255),
+    tipo_util ENUM('visitante', 'cliente', 'funcionario', 'administrador') NOT NULL DEFAULT 'visitante',
     saldo DECIMAL(10,2) DEFAULT 0.00
-    
-
 );
-
-
---tablea de carteiras
-
-CREATE TABLE IF NOT EXISTS carteira(
-    carteira_id INT PRIMARY KEY AUTO_INCREMENT,
-    utilizador_id INT NOT NULL,
-    saldo DECIMAL(15, 2) NOT NULL 
-)
-
 
 
 CREATE TABLE IF NOT EXISTS transacoes (

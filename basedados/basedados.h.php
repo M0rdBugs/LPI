@@ -4,7 +4,7 @@
 
         public static function connect() {
             if (!self::$conn) {
-                self::$conn = new mysqli("localhost", "root", "", "FelixUberShop");
+                self::$conn = new mysqli("localhost", "root", "", "trabalho1PHP");
                 if (self::$conn->connect_error) {
                     die("Conecção falhou: " . self::$conn->connect_error);
                 }
