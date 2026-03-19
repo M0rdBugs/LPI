@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FelixUberShop</title>
+        <title>Login</title>
+
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,7 +13,7 @@
                 margin: 0;
                 padding: 0;
             }
-            
+
             .container {
                 max-width: 1200px;
                 margin: 0 auto;
@@ -34,7 +35,6 @@
                 display: flex;
                 align-items: center;
             }
-            
             nav a {
                 color: var(--dark);
                 text-decoration: none;
@@ -42,24 +42,28 @@
                 font-weight: 500;
                 transition: color 0.3s;
             }
-            
+
             nav a:hover {
                 color: var(--primary);
                 transform: translateY(-2px);
                 transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
             }
+
             .logo {
                 display: flex;
                 align-items: center;
             }
+
             .logo img {
                 height: 50px;
                 margin-right: 10px;   
             }
+
             .logo:hover {
                 transform: translateY(-2px);
                 transition: transform 0.3s, box-shadow 0.3s;
             }
+            
             footer {
                 text-align: center;
                 position: fixed;
@@ -70,6 +74,20 @@
                 width: 100%;
                 background-color: ghostwhite;
             }
+
+            form {
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                max-width: fit-content;
+                margin: 0 auto;
+            }
+
+            form h2 {
+                margin-bottom: 20px;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -79,7 +97,7 @@
                     <a href="index.html">
                         <img src="logo.png" alt="FelixUberShop Logo">
                     </a>
-                    <h1>FelixUberShop</h1>
+                    <h1>Login</h1>
                 </div>
                 <nav>
                     <a href="produtos.html"><i class="fas fa-product-hunt"></i> Produtos</a>
@@ -87,6 +105,21 @@
                     <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Login | Registo</a>
                 </nav>
             </header>
+        </div>
+
+        <div class ="form-container">
+            <form action="login.jsp"method="POST">
+                <h2>Faça Login</h2>
+                <label for="nome">Nome de Usuário:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Entrar</button>       
+                <button type="button" onclick="window.location.href='registo.html'">Registrar</button>
+            </form>
+            
         </div>
         <footer>
             <p>&copy; 2026 FelixUberShop. Todos os direitos reservados.</p>

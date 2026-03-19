@@ -4,7 +4,7 @@
 <%
     HttpSession currentSession = request.getSession(false);
     if (currentSession == null || !"cliente".equals(currentSession.getAttribute("tipo_utilizador"))) {
-        response.sendRedirect("index.html");
+        response.sendRedirect("login.html");
         return;
     }
 %>
