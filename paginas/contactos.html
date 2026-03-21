@@ -5,85 +5,172 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contactos</title>
         <style>
-            body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: var(--dark);
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+            body { 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                color: var(--dark);
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;    
+            }
 
-        header {
-            background-color: white;
-            padding: 20px 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-        }
-        
-        nav a {
-            color: var(--dark);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--primary);
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            height: 50px;
-            margin-right: 10px;   
-        }
-        footer {
-            text-align: center;
-            position: fixed;
-            margin: 1 auto;
-            padding: 20px;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: ghostwhite;
-        }
-        </style>
+            header {
+                background-color: white;
+                padding: 20px 40px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+            }
+            
+            nav a {
+                color: var(--dark);
+                text-decoration: none;
+                margin-left: 25px;
+                font-weight: 500;
+                transition: color 0.3s;
+            }
+            
+            nav a:hover {
+                color: var(--primary);
+                transform: translateY(-2px);
+                transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo img {
+                height: 50px;
+                margin-right: 10px;   
+            }
+            .logo:hover {
+                transform: translateY(-2px);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            footer {
+                text-align: center;
+                position: flex;
+                margin: 1 auto;
+                padding: 20px;
+                bottom: 0;
+                left: 0;
+                max-width: inherit;
+                background-color: ghostwhite;
+                border: 2px solid #ddd;
+            }
+
+            .container-column {
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                margin-bottom: 30px;
+                max-width: 1200px;
+            }
+            .contact-column {
+                margin-bottom: 20px;
+            }
+
+            .container-title {
+                font-size: large;
+                font-style: oblique;
+            }
+            .container-column.contact-column{
+                display: flex;
+                flex-direction: column;
+            }
+
+            .columns-wrapper {
+                display: flex;
+                gap: 20px;
+            }
+
+            .columns-wrapper .container-column {
+                flex: 1;
+                border: 2px solid #ddd;
+                box-sizing: border-box;
+            } 
+            .right-stack {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                gap: 20px;
+            }
+
+            .right-stack .container-column {
+                margin-bottom: 30px;
+            }           
+
+        </style> 
     </head>
     <body>
-            <div class="container">
+        <div class="container">
             <header>
-            <div class="logo">
-                <a href="index.html">
-                    <img src="logo.png" alt="FelixUberShop Logo">
-                </a>
-                <h1>Contactos</h1>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="FelixUberShop Logo">
+                    </a>
+                    <div class= "container-title"><h1>Contacto</h1> </div>    
+                </div>
+                <nav>
+				    <a href="produtos.html"><i class="fas fa-product-hunt"></i> Produtos</a>
+				    <a href="contactos.html"><i class="fas fa-contact-card"></i> Contacto</a>
+				    <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Login | Registo</a>
+			    </nav>
+            </header>
+        
+            <div class="columns-wrapper">
+                <div class="container-column map-column">
+                    <h4>Onde estamos</h4>               
+                    <div class="map-container">
+                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6226.2559522098445!2d-9.124163252913135!3d38.71487069128832!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spt!4v1742197360379!5m2!1sen!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <p class="address">
+                            123 Business Street,<br>
+                            Lisbon, Portugal
+                        </p>
+                    </div>
+                    
+
+                </div>
+                <div class= "right-stack">
+                    <div class="container-column contact-column">
+                        <h3>Contacte-nos</h3>
+                        <ul>                           
+                            <p> E-mail: info@felixuber.eu <br>
+                                Tel.: +351 123456789 <br>       
+                                Horário: Segunda a sexta-feira ǀ 6:00 – 22:00
+                            </p>
+                        </ul>
+                    </div>
+                    <div class="container-column contact-column">
+                        <h3>Redes Sociais</h3>
+                        <ul>
+                            <p>
+                                Facebook: facebook.com/felixuber<br>
+                                Twitter: twitter.com/felixuber<br>
+                                Instagram: instagram.com/felixuber
+                            </p>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <nav>
-				<a href="#"><i class="fas fa-product-hunt"></i> Produtos</a>
-				<a href="contactos.html"><i class="fas fa-contact-card"></i> Contacto</a>
-				<a href="#" class="btn"><i class="fas fa-sign-in-alt"></i> Login</a>
-			</nav>
-        </header>
-
-            
-
-        <footer>
+        </div>
+            <footer>
             <p>&copy; 2026 FelixUberShop. Todos os direitos reservados.</p>
         </footer>
     </body>

@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%
     HttpSession currentSession = request.getSession(false);
-    if (currentSession == null || !"cliente".equals(currentSession.getAttribute("tipo_utilizador"))) {
+    if (!"cliente".equals(currentSession.getAttribute("tipo_utilizador"))) {
         response.sendRedirect("login.html");
         return;
     }
@@ -50,7 +50,7 @@
         </div>
 
         <footer>
-            &copy; 2024 FelixUberShop. Todos os direitos reservados.
+            &copy; 2026 FelixUberShop. Todos os direitos reservados.
         </footer>
     </body>    
 </html>
