@@ -1,9 +1,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../basedados/basedados.h.jsp" %>
+<%@ include file="../basedados/basedados.h" %>
+
+
 
 <%
+ Connection conn = null;
+
+ Class.forName("com.mysql.jdbc.Driver").newInstance();
+ String jdbcURL="jdbc:mysql://localhost:3306/trabalho1"; // BD "jsp"
+ conn = DriverManager.getConnection(jdbcURL,"root", "root");
+
+ PreparedStatement psSelectRecord= null;
+ ResultSet rsSelectRecord= null;
+ String sqlSelectRecord= null;
+
+ sqlSelectRecord ="SELECT * FROM contacto"; // tabela "contacto"
+ psSelectRecord=conn.prepareStatement(sqlSelectRecord);
+ //psSelectRecord.setString(1,"Marketing");
+ rsSelectRecord=psSelectRecord.executeQuery();
+
+%>
+<%
     if ("POST".equalsIgnoreCase(request.getMethod())) {
-        String nome = request.getParameter("username");
+        String nome = request.getParameter("nome");
         String password = request.getParameter("password_hash");
 
         try {

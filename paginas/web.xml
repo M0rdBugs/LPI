@@ -4,6 +4,6 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <welcome-file-list>
-        <welcome-file>paginas/login.html</welcome-file>
+        <welcome-file>paginas/index.html</welcome-file>
     </welcome-file-list>
 </web-app>

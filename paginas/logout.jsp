@@ -1,4 +1,4 @@
-<%@ include file="../basedados/basedados.h.jsp" %>
+<%@ include file="../basedados/basedados.h" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
 <%
@@ -7,4 +7,5 @@
         currentSession.invalidate();
     }
     response.sendRedirect("login.html");
+
 %>

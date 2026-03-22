@@ -3,73 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
         <title>Registo</title>
         <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-                color: var(--dark);
-                margin: 0;
-                padding: 0;
-            }
-            
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-
-            header {
-                background-color: white;
-                padding: 20px 40px;
-                border-radius: 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                margin-bottom: 30px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            nav {
-                display: flex;
-                align-items: center;
-            }
-            
-            nav a {
-                color: var(--dark);
-                text-decoration: none;
-                margin-left: 25px;
-                font-weight: 500;
-                transition: color 0.3s;
-            }
-            
-            nav a:hover {
-                color: var(--primary);
-                transform: translateY(-2px);
-                transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
-            }
-            .logo {
-                display: flex;
-                align-items: center;
-            }
-            .logo img {
-                height: 50px;
-                margin-right: 10px;   
-            }
-            .logo:hover {
-                transform: translateY(-2px);
-                transition: transform 0.3s, box-shadow 0.3s;
-            }
-            footer {
-                text-align: center;
-                position: fixed;
-                margin: 1 auto;
-                padding: 20px;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background-color: ghostwhite;
-            }
             form {
                 background-color: white;
                 padding: 30px;
@@ -77,8 +13,11 @@
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 max-width: fit-content;
                 margin: 0 auto;
+                height: 100px;
             }
-
+            form h1 {
+                margin-bottom:auto;
+            }
             form h2 {
                 margin-bottom: 20px;
                 text-align: center;

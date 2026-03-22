@@ -39,7 +39,7 @@ INSERT INTO carteira (tipo_utilizador, nome, saldo) VALUES
 CREATE TABLE IF NOT EXISTS produto (
     produto_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
-    descricao VARCHAR(500),
+    descricao TEXT,
     preco DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     quantidade INT NOT NULL DEFAULT 1,
     estado ENUM ('ativo', 'inativo') DEFAULT 'ativo'
@@ -58,7 +58,7 @@ VALUES
 CREATE TABLE IF NOT EXISTS promocao (
     promocao_id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(255) NOT NULL,
-    conteudo VARCHAR(500) NOT NULL,
+    conteudo TEXT NOT NULL,
     data_inicio DATE NOT NULL,
     data_fim DATE NOT NULL,
     estado ENUM ('ativo', 'inativo') DEFAULT 'inativo'
@@ -108,11 +108,9 @@ CREATE TABLE IF NOT EXISTS encomenda_item (
 
 CREATE TABLE IF NOT EXISTS transacoes (
     transacoes_id INT PRIMARY KEY AUTO_INCREMENT ,
-    user_id INT NOT NULL,
     utilizador_id INT NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
     tipo ENUM('CARGA', 'COMPRA', 'REEMBOLSO') NOT NULL,
     data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES utilizador(utilizador_id)
     FOREIGN KEY (utilizador_id) REFERENCES utilizador(utilizador_id)
 );
