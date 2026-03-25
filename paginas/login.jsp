@@ -2,34 +2,10 @@
 <%@ include file="../basedados/basedados.h" %>
 
 
-
 <%
- Connection conn = null;
-
- Class.forName("com.mysql.jdbc.Driver").newInstance();
- String jdbcURL="jdbc:mysql://localhost:3306/trabalho1"; // BD "jsp"
- conn = DriverManager.getConnection(jdbcURL,"root", "root");
-
- PreparedStatement psSelectRecord= null;
- ResultSet rsSelectRecord= null;
- String sqlSelectRecord= null;
-
- sqlSelectRecord ="SELECT * FROM contacto"; // tabela "contacto"
- psSelectRecord=conn.prepareStatement(sqlSelectRecord);
- //psSelectRecord.setString(1,"Marketing");
- rsSelectRecord=psSelectRecord.executeQuery();
-
-%>
-<%
-<<<<<<< Updated upstream
-    if ("POST".equalsIgnoreCase(request.getMethod())) {
-        String nome = request.getParameter("nome");
-        String password = request.getParameter("password_hash");
-=======
         //  Não sei como inverter o Hash..
-        String nome1 = request.getParameter("nome");
+        String nome = request.getParameter("nome");
         String password = request.getParameter("password");
->>>>>>> Stashed changes
 
         try 
         {
@@ -38,7 +14,7 @@
 
                 String sql = "SELECT * FROM utilizador WHERE nome = ? AND password_hash = ?";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, nome1);
+                pstmt.setString(1, nome);
                 pstmt.setString(2, password);
                 ResultSet resultado = pstmt.executeQuery();
 
