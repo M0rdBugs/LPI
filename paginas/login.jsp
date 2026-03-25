@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../basedados/basedados.h" %>
+<%@ page import="java.sql.*" %>
 
 
 <%
+    
         //  Não sei como inverter o Hash..
         String nome = request.getParameter("nome");
         String password = request.getParameter("password");
@@ -10,6 +12,7 @@
         try 
         {
             Connection conn = (Connection) application.getAttribute("conn");
+
             if (conn != null) {
 
                 String sql = "SELECT * FROM utilizador WHERE nome = ? AND password_hash = ?";

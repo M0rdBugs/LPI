@@ -1,12 +1,9 @@
-<%@ include file="../basedados/basedados.h.jsp" %>
+<%@ include file="../basedados/basedados.h" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
 <%@ page session="true" %>
 <%
-    if (session.getAttribute("utilizador_id") == null || !"cliente".equals(session.getAttribute("tipo_util"))) {
-        response.sendRedirect("login.html");
-        return;
-    }
+
 %>
 <!DOCTYPE html>
 <html lang="en">

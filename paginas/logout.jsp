@@ -1,9 +1,10 @@
-<%@ include file="../basedados/basedados.h.jsp" %>
+<%@ include file="../basedados/basedados.h" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
 <%@ page session="true" %>
 <%
-    // Falta aqui mandar a sessão abaixo I think
+    session.removeAttribute("nomeUtilizador");
+    session.removeAttribute("tipoUtilizador");
+    session.invalidate();
     response.sendRedirect("login.html");
-
 %>

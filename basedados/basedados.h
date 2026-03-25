@@ -5,12 +5,10 @@
     String dbPassword = "";
 
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         application.setAttribute("conn", conn);
-        out.println("Conexão com o banco de dados estabelecida com sucesso!");
     } catch (Exception e) {
         e.printStackTrace();
-        out.println("Erro ao conectar ao banco de dados: " + e.getMessage());
     }
 %>

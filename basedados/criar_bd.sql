@@ -10,16 +10,16 @@ CREATE TABLE IF NOT EXISTS utilizador (
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255),
     password_hash VARCHAR(255) NOT NULL,
-    saldo DECIMAL(10,2),
-    tipo_util ENUM('visitante', 'cliente', 'funcionario', 'administrador') NOT NULL DEFAULT 'visitante'
+    tipo_util ENUM('visitante', 'cliente', 'funcionario', 'administrador') NOT NULL DEFAULT 'visitante',
+    data_registo DATE DEFAULT CURRENT_TIMESTAMP
 );
 
 
-INSERT INTO utilizador (nome, email, password_hash, saldo, tipo_util)
+INSERT INTO utilizador (nome, email, password_hash, tipo_util)
 VALUES
-('cliente', 'cliente@email.pt', SHA2('cliente', 256), 100.00, 'cliente'),
-('funcionario', 'funcionario@empresa.pt', SHA2('funcionario', 256), NULL, 'funcionario'),
-('admin', 'admin@empresa.pt', SHA2('admin', 256), NULL, 'administrador');
+('cliente', 'cliente@email.pt', SHA2('cliente', 256),'cliente'),
+('funcionario', 'funcionario@empresa.pt', SHA2('funcionario', 256), 'funcionario'),
+('admin', 'admin@empresa.pt', SHA2('admin', 256),'administrador');
 
 -- Carteira talvez assuma o valor total que a empresa faturou, senão, assume-se outra carteira que pegue nesse valor (?)
 CREATE TABLE IF NOT EXISTS carteira (
