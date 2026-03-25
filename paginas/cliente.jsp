@@ -1,9 +1,9 @@
-<%@ include file="../basedados/basedados.h" %>
+<%@ include file="../basedados/basedados.h.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
+<%@ page session="true" %>
 <%
-    HttpSession currentSession = request.getSession(false);
-    if (!"cliente".equals(currentSession.getAttribute("tipo_utilizador"))) {
+    if (session.getAttribute("utilizador_id") == null || !"cliente".equals(session.getAttribute("tipo_util"))) {
         response.sendRedirect("login.html");
         return;
     }
