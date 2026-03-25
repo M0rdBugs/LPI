@@ -23,7 +23,7 @@ VALUES
 
 -- Carteira talvez assuma o valor total que a empresa faturou, senão, assume-se outra carteira que pegue nesse valor (?)
 CREATE TABLE IF NOT EXISTS carteira (
-    carteira_id INT PRIMARY KEY AUTO_INCREMENT,
+    carteira_id INT PRIMARY KEY UNIQUE AUTO_INCREMENT,
     utilizador_id INT UNIQUE,
     nome VARCHAR(50) NOT NULL,
     saldo DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
@@ -67,36 +67,20 @@ CREATE TABLE IF NOT EXISTS promocao (
 -- O identificador único é o encomenda_id (gerado automaticamente).
 CREATE TABLE IF NOT EXISTS encomenda (
     encomenda_id INT PRIMARY KEY AUTO_INCREMENT,
-<<<<<<< Updated upstream
     utilizador_id INT,
     produto_id INT,
+    codigo_unico VARCHAR(30) UNIQUE,
     CONSTRAINT fk_encomenda_utilizador
     FOREIGN KEY (utilizador_id) REFERENCES utilizador(utilizador_id),
-    data DATETIME,
-    estado ENUM ('ativo','alterada','anulada') DEFAULT 'ativo',
-    CONSTRAINT fk_produto_encomenda FOREIGN KEY (produto_id) REFERENCES produto(produto_id), valor DECIMAL(10, 2) NOT NULL DEFAULT 0.00
-=======
-    utilizador_id INT NOT NULL,
-    codigo_unico VARCHAR(30) UNIQUE,
     data DATETIME DEFAULT CURRENT_TIMESTAMP,
-    estado ENUM ('ativa','alterada','anulada') DEFAULT 'ativa',
-    valor_total DECIMAL(10,2),
-    CONSTRAINT fk_encomenda_utilizador
-    FOREIGN KEY (utilizador_id) REFERENCES utilizador(utilizador_id)
->>>>>>> Stashed changes
+    estado ENUM ('ativo','alterada','anulada','entregue') DEFAULT 'ativo'
 );
 
 -- Registo de todas as operações relevantes do sistema para
 -- efeitos de rastreabilidade (quem fez o quê e quando)
-<<<<<<< Updated upstream
-=======
--- Valor total da auditoria talvez é bom ter
--- Em vez de ter carteira ID so, mais vale ter onde começa e para onde vai
->>>>>>> Stashed changes
 CREATE TABLE IF NOT EXISTS auditoria (
     auditoria_id INT PRIMARY KEY AUTO_INCREMENT,
     utilizador_id INT,
-    operacao ENUM ('Compra', 'Reembolso', 'Carga') NOT NULL,
     data DATETIME DEFAULT CURRENT_TIMESTAMP,
     carteira_origem INT,
     carteira_destino INT,
@@ -120,18 +104,3 @@ CREATE TABLE IF NOT EXISTS encomenda_item (
     CONSTRAINT fk_produto_item
     FOREIGN KEY (produto_id) REFERENCES produto(produto_id)
 );
-<<<<<<< Updated upstream
-
--- Regista movimentos de saldo nas carteiras (carga, compra, reembolso)
--- Serve também de base de auditoria financeira
-
-CREATE TABLE IF NOT EXISTS transacoes (
-    transacoes_id INT PRIMARY KEY AUTO_INCREMENT ,
-    utilizador_id INT NOT NULL,
-    valor DECIMAL(10,2) NOT NULL,
-    tipo ENUM('CARGA', 'COMPRA', 'REEMBOLSO') NOT NULL,
-    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (utilizador_id) REFERENCES utilizador(utilizador_id)
-);
-=======
->>>>>>> Stashed changes
