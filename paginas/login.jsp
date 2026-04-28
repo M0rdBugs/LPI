@@ -4,7 +4,6 @@
 
 
 <%
-    
         //  Não sei como inverter o Hash..
         String nome = request.getParameter("nome");
         String password = request.getParameter("password");
@@ -50,6 +49,7 @@
                     pstmt.close();
                     return;
                 }
+                
             } else {
                     out.println("<p>Conexão com a base de dados não está estabelecida.</p>");
                     return;
@@ -57,9 +57,7 @@
 
         } catch (SQLException e) {
             e.printStackTrace();
-            out.println("<p>Erro: " + e.getMessage() + "</p>");
             response.sendRedirect("login.html");
-
         }
 %>
 

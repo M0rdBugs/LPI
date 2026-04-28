@@ -3,7 +3,10 @@
 <%@ page import="java.sql.*" %>
 <%@ page session="true" %>
 <%
-
+    if (session.getAttribute("utilizador_id") == null || !"cliente".equals(session.getAttribute("tipo_util"))) {
+        response.sendRedirect("login.html");
+        return;
+    }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,21 +15,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <title>Cliente</title>
-        <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-                color: var(--dark);
-                margin: 0;
-                padding: 0;
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-        </style>
     </head>
     <body>
         <header>

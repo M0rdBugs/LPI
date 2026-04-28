@@ -6,9 +6,9 @@ USE trabalho1;
 -- O utilizador em si não se usa logo para o visitante, por mais que assume visitante na base de dados. 
 -- Na questão de proteção talvez seja necessário usar as mesmas páginas para utilizadores diferentes 
 CREATE TABLE IF NOT EXISTS utilizador (
-    utilizador_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255),
+    utilizador_id INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     tipo_util ENUM('visitante', 'cliente', 'funcionario', 'administrador') NOT NULL DEFAULT 'visitante',
     data_registo DATE DEFAULT CURRENT_TIMESTAMP
@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS carteira (
 
 -- Carteira da FelixUberShop (sem utilizador associado) e carteiras dos utilizadores iniciais
 INSERT INTO carteira (utilizador_id, nome, saldo) VALUES
-(NULL,'FelixUberShop',  0.00);  -- carteira especial da loja
+(1,'cliente', 100.00),
+(NULL,'FelixUberShop', 0.00);  -- carteira especial da loja
 
 CREATE TABLE IF NOT EXISTS produto (
     produto_id INT PRIMARY KEY AUTO_INCREMENT,
