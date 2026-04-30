@@ -3,8 +3,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page session="true" %>
 <%
-    session.removeAttribute("nomeUtilizador");
-    session.removeAttribute("tipoUtilizador");
-    session.invalidate();
+    session.removeAttribute("utilizador_id");
+    session.removeAttribute("tipo_util");
+    session.destroy();
     response.sendRedirect("login.html");
 %>

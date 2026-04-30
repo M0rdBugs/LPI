@@ -14,7 +14,7 @@
 
             if (conn != null) {
 
-                String sql = "SELECT * FROM utilizador WHERE nome = ? AND password_hash = ?";
+                String sql = "SELECT * FROM utilizador WHERE nome = ? AND password_hash = SHA2(?, 256)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, nome);
                 pstmt.setString(2, password);
@@ -27,7 +27,7 @@
                     sessao.setAttribute("tipo_util", tipoUtilizador);
                     switch (tipoUtilizador) {
                         case "admin":
-                            sessao.setAttribute("admin", true);
+                            sessao.setAttribute("administrador", true);
                             response.sendRedirect("adminDashboard.jsp");
                             return;
                         case "funcionario":

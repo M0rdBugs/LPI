@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS trabalho1 
+CREATE DATABASE IF NOT EXISTS felixbus
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE trabalho1;

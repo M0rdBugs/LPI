@@ -4,7 +4,6 @@
 
 <%
     String nome = request.getParameter("nome");
-    //tem que fazer hashing (?)
     String pwd = request.getParameter("password");
     String email = request.getParameter("email");
 
@@ -19,7 +18,7 @@
     int i = pstmt.executeUpdate();
     if (i > 0) {
         session.setAttribute("utilizador_id", nome);
-        out.print("Registro feito!"+"<a href=login.html'>Faça Login</a>");
+        out.print("Registro feito!"+"<a href='login.html'>Faça Login</a>");
     } else {
         response.sendRedirect("index.html");
     }
