@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS felixbus
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE trabalho1;
+USE felixbus;
 
 -- O utilizador em si não se usa logo para o visitante, por mais que assume visitante na base de dados. 
 -- Na questão de proteção talvez seja necessário usar as mesmas páginas para utilizadores diferentes 

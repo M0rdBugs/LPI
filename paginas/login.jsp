@@ -26,7 +26,7 @@
                     sessao.setAttribute("utilizador_id", resultado.getInt("utilizador_id"));
                     sessao.setAttribute("tipo_util", tipoUtilizador);
                     switch (tipoUtilizador) {
-                        case "admin":
+                        case "administrador":
                             sessao.setAttribute("administrador", true);
                             response.sendRedirect("adminDashboard.jsp");
                             return;

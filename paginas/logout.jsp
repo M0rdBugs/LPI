@@ -5,6 +5,6 @@
 <%
     session.removeAttribute("utilizador_id");
     session.removeAttribute("tipo_util");
-    session.destroy();
+    session.invalidate();
     response.sendRedirect("login.html");
 %>

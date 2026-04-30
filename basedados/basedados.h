@@ -17,3 +17,20 @@
  return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
  }
 %>
+
+<% 
+    Connection connection = null;
+    try {
+        connection = connectBD();
+    } catch (SQLException e) {
+        out.println("Erro ao conectar à base de dados: " + e.getMessage());
+    } finally {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                out.println("Erro ao fechar a conexão: " + e.getMessage());
+            }
+        }
+    }
+%>
