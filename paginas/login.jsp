@@ -2,63 +2,40 @@
 <%@ include file="../basedados/basedados.h" %>
 <%@ page import="java.sql.*" %>
 
-
 <%
-        //  Não sei como inverter o Hash..
-        String nome = request.getParameter("nome");
-        String password = request.getParameter("password");
+    String nome = request.getParameter("nome");
+    String password = request.getParameter("password");
 
-        try 
-        {
-            Connection conn = (Connection) application.getAttribute("conn");
+    Connection conn = null;
+    try {
+        conn = connectBD();
 
-            if (conn != null) {
+        String sql = "SELECT * FROM utilizador WHERE nome = ? AND password_hash = SHA2(?, 256)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, nome);
+        pstmt.setString(2, password);
+        ResultSet resultado = pstmt.executeQuery();
 
-                String sql = "SELECT * FROM utilizador WHERE nome = ? AND password_hash = SHA2(?, 256)";
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, nome);
-                pstmt.setString(2, password);
-                ResultSet resultado = pstmt.executeQuery();
-
-                if (resultado.next()) {
-                    String tipoUtilizador = resultado.getString("tipo_util");
-                    HttpSession sessao = request.getSession();
-                    sessao.setAttribute("utilizador_id", resultado.getInt("utilizador_id"));
-                    sessao.setAttribute("tipo_util", tipoUtilizador);
-                    switch (tipoUtilizador) {
-                        case "administrador":
-                            sessao.setAttribute("administrador", true);
-                            response.sendRedirect("adminDashboard.jsp");
-                            return;
-                        case "funcionario":
-                            sessao.setAttribute("funcionario", true);
-                            response.sendRedirect("funcionarioDashboard.jsp");
-                            return;
-                        case "cliente":
-                            sessao.setAttribute("cliente", true);
-                            response.sendRedirect("cliente.jsp");
-                            return;
-                        default:
-                            sessao.invalidate();    
-                            response.sendRedirect("index.html");
-                            return;
-                    }
-                } else {
-                    response.sendRedirect("login.html");
-                    resultado.close();
-                    pstmt.close();
-                    return;
-                }
-                
-            } else {
-                    out.println("<p>Conexão com a base de dados não está estabelecida.</p>");
-                    return;
-                }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (resultado.next()) {
+            String tipoUtilizador = resultado.getString("tipo_util");
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("utilizador_id", resultado.getInt("utilizador_id"));
+            sessao.setAttribute("tipo_util", tipoUtilizador);
+            response.sendRedirect("home.jsp");
+            return;
+        } else {
+            resultado.close();
+            pstmt.close();
             response.sendRedirect("login.html");
+            return;
         }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        response.sendRedirect("login.html");
+    } finally {
+        if (conn != null) {
+            try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
+    }
 %>
-
-

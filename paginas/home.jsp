@@ -7,6 +7,7 @@
         response.sendRedirect("login.html");
         return;
     }
+    String tipoUtilizador = (String) session.getAttribute("tipo_util");
 %>
 <html>
     <head>
@@ -14,10 +15,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <title>FelixUberShop</title>
-        <style>
-
-
-        </style>
     </head>
   
     <body>
@@ -32,13 +29,13 @@
                 <nav>
                     <a href="produtos.jsp"><i class="fas fa-product-hunt"></i> Produtos</a>
                     <a href="contactos.html"><i class="fas fa-contact-card"></i> Contacto</a>
-                    <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Login | Registo</a>
+                    <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Conta</a>
                 </nav>
             </header>
         </div>
-        <Main>
-        Pagina inicial que os utilizadores veem após fazer login. Pode exibir conteúdo diferente com base no papel do usuário (admin, funcionário ou cliente)    
-        </Main>
+        <main>
+        Conteúdo em base do tipo de utilizador a ser feito ainda
+        </main>
 
         <footer>
             <p>&copy; 2026 FelixUberShop. Todos os direitos reservados.</p>

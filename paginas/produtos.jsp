@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta content="text/html;charset=UTF-8" language="java" http-equiv="Content-Type">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <title>Produtos</title>
@@ -62,7 +62,7 @@
                 <nav>
                     <a href="produtos.html"><i class="fas fa-product-hunt"></i> Produtos</a>
                     <a href="contactos.html"><i class="fas fa-contact-card"></i> Contacto</a>
-                    <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Login | Registo</a>
+                    <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Conta</a>
                 </nav>
             </header>
         </div>
