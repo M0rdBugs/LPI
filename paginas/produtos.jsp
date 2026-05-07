@@ -1,4 +1,14 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
+=======
+<%@ include file="../basedados/basedados.h" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.*" %>
+<%@ page session="true" %>
+<%
+    String tipoUtilizador = (String) session.getAttribute("tipo_util");
+%>
+>>>>>>> Stashed changes
 <html>
     <head>
         <meta content="text/html;charset=UTF-8" language="java" http-equiv="Content-Type">
@@ -6,6 +16,7 @@
         <link rel="stylesheet" href="styles.css">
         <title>Produtos</title>
         <style>
+<<<<<<< Updated upstream
             .container-products {
                 background-color: white;
                 padding: 40px;
@@ -49,6 +60,34 @@
                 background-color: white;
             }
         </style>
+=======
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid #ddd;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+            .btn-verde {
+                background-color: #28a745;
+                color: white;
+                padding: 8px 12px;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+            .btn-verde:hover {
+                background-color: #218838;
+            }
+        </style>
+            
+>>>>>>> Stashed changes
     </head>
     <body>
         <div class="container">
@@ -62,7 +101,11 @@
                 <nav>
                     <a href="produtos.html"><i class="fas fa-product-hunt"></i> Produtos</a>
                     <a href="contactos.html"><i class="fas fa-contact-card"></i> Contacto</a>
+<<<<<<< Updated upstream
                     <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Conta</a>
+=======
+                    <a href="login.html" class="btn"><i class="fas fa-user"></i> Conta</a>
+>>>>>>> Stashed changes
                 </nav>
             </header>
         </div>
@@ -109,6 +152,62 @@
 
                 </div>  
 
+<<<<<<< Updated upstream
+=======
+                <%
+                    Connection conn = null;
+                    PreparedStatement stmt = null;
+                    ResultSet rs = null;
+                    try {
+                        conn = connectBD();
+                        String ordem = request.getParameter("ordem");
+                        String orderBy = "nome ASC"; // Ordenação padrão
+                        if ("nome_desc".equals(ordem)) orderBy = "nome DESC";
+                        else if ("preco".equals(ordem)) orderBy = "preco ASC";
+                        else if ("preco_desc".equals(ordem)) orderBy = "preco DESC";
+                        
+                        String sql = "SELECT * FROM produtos WHERE estado = 'ativo' ORDER BY " + orderBy;
+                        stmt = conn.prepareStatement(sql);
+                        rs = stmt.executeQuery();
+                %>
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Stock</th>
+                        <!-- Se for cliente, mostra a coluna de ação para encomendar -->
+                        <% if ("cliente".equals(session.getAttribute("perfil"))) { %><th>Ação</th><% } %>
+                    </tr>
+                    <% 
+                        boolean temProdutos = false;
+                        while (rs.next()) {
+                            temProdutos = true;
+                    %>
+                    <tr>
+                        <td><%= rs.getString("nome") %></td>
+                        <td><%= rs.getString("descricao") %></td>
+                        <td><strong><%= String.format("%.2f", rs.getDouble("preco")) %> €</strong></td>
+                        <td><%= rs.getInt("stock") %> un.</td>
+                        <!-- Se o utilizador for cliente, mostra o botão de encomendar -->
+                        <% if ("cliente".equals(session.getAttribute("perfil"))) { %>
+                            <td><a href="nova_encomenda.jsp?produto=<%= rs.getInt("id") %>" class="btn btn-verde">Encomendar</a></td>
+                        <% } %>
+                    </tr>
+                    <% } %>
+                    <% if (!temProdutos) { %>
+                    <tr><td colspan="5" style="text-align:center;">Não existem produtos disponíveis.</td></tr>
+                    <% } %>
+                </table>
+                <%
+                    } catch (Exception e) {
+                        out.println("<div class='msg-erro'>Erro ao carregar produtos: " + e.getMessage() + "</div>");
+                    } finally {
+                        conn.close();
+                    }
+                %>
+            </div>
+>>>>>>> Stashed changes
         </div>
         <footer>
             <p>&copy; 2026 FelixUberShop. Todos os direitos reservados.</p>

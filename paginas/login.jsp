@@ -26,7 +26,7 @@
         } else {
             resultado.close();
             pstmt.close();
-            response.sendRedirect("login.html");
+            response.sendRedirect("index.html");
             return;
         }
 
