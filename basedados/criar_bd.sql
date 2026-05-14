@@ -8,6 +8,7 @@ USE felixbus;
 CREATE TABLE IF NOT EXISTS utilizador (
     utilizador_id INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) UNIQUE,
     email VARCHAR(255) UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     tipo_util ENUM('visitante', 'cliente', 'funcionario', 'administrador') NOT NULL DEFAULT 'visitante',
@@ -15,11 +16,11 @@ CREATE TABLE IF NOT EXISTS utilizador (
 );
 
 
-INSERT INTO utilizador (nome, email, password_hash, tipo_util)
+INSERT INTO utilizador (nome, username, email, password_hash, tipo_util)
 VALUES
-('cliente', 'cliente@email.pt', SHA2('cliente', 256),'cliente'),
-('funcionario', 'funcionario@empresa.pt', SHA2('funcionario', 256), 'funcionario'),
-('admin', 'admin@empresa.pt', SHA2('admin', 256),'administrador');
+('cliente', 'cliente', 'cliente@email.pt', SHA2('cliente', 256),'cliente'),
+('funcionario', 'funcionario', 'funcionario@empresa.pt', SHA2('funcionario', 256), 'funcionario'),
+('admin', 'admin', 'admin@empresa.pt', SHA2('admin', 256),'administrador');
 
 -- Carteira talvez assuma o valor total que a empresa faturou, senão, assume-se outra carteira que pegue nesse valor (?)
 CREATE TABLE IF NOT EXISTS carteira (

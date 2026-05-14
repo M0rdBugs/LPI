@@ -1,0 +1,312 @@
+/* ============================================
+   Ficheiro: styles.css
+   Descricao: Estilos globais da FelixUberShop.
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #2c7a2c;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+header h1 span {
+    color: #a8e6a8;
+}
+
+.user-area {
+    font-size: 0.9em;
+}
+
+.user-area a {
+    color: #a8e6a8;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.user-area a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    background: #1a5c1a;
+    padding: 10px 30px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 0.95em;
+}
+
+nav a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #2c7a2c;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2c7a2c;
+    padding-bottom: 8px;
+}
+
+.msg-sucesso {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.msg-erro {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.msg-info {
+    background: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #2c7a2c;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.form-grupo {
+    margin-bottom: 15px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+.form-grupo textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-verde {
+    background: #2c7a2c;
+    color: white;
+}
+
+.btn-verde:hover {
+    background: #1a5c1a;
+}
+
+.btn-vermelho {
+    background: #c0392b;
+    color: white;
+}
+
+.btn-vermelho:hover {
+    background: #a93226;
+}
+
+.btn-azul {
+    background: #2980b9;
+    color: white;
+}
+
+.btn-azul:hover {
+    background: #1a6fa8;
+}
+
+.btn-cinza {
+    background: #7f8c8d;
+    color: white;
+}
+
+.btn-cinza:hover {
+    background: #6c7a7d;
+}
+
+.btn-laranja {
+    background: #e67e22;
+    color: white;
+}
+
+.btn-laranja:hover {
+    background: #d35400;
+}
+
+.dashboard-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.dashboard-grid .btn {
+    flex: 1 1 200px;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: 1em;
+}
+
+.saldo-card {
+    background: #d4edda;
+    border: 2px solid #27ae60;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.secao-promocoes {
+    background: #fff3cd;
+    border-left: 5px solid #e67e22;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.secao-promocoes h2 {
+    color: #e67e22;
+    margin-bottom: 15px;
+}
+
+.promocao-item {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+footer {
+    background: #1a5c1a;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.85em;
+    flex-shrink: 0;
+}
+
+footer p {
+    margin: 3px 0;
+}
+
+.breadcrumb {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.breadcrumb a {
+    color: #2c7a2c;
+    text-decoration: none;
+}
+
+details summary {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: flex-end;
+}
+
+.filtros .form-grupo {
+    margin: 0;
+}
+
+.filtros input,
+.filtros select {
+    width: auto;
+}
